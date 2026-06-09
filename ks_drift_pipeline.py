@@ -29,7 +29,7 @@ def detect_tabular_shift(ref_path: str, curr_path: str, p_val_threshold: float =
 
   for i, feature in enumerate(feature_names):
     report["features"][feature]={
-      "drift_detected": bool(preds["data"]["p_val"][i]<p_val_threshold),
+      "drift_detected": bool(preds["data"]["p_val"][i]<preds["data"]["threshold"]),
       "p_value": float(preds["data"]["p_val"][i]),
       "ks_stats": float(preds["data"]["distance"][i])
     }
